@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\Kernel\WarehouseManagement.Shared.Kernel.csproj" />
+    <ProjectReference Include="..\Application\WarehouseManagement.Modules.Inventory.Application.csproj" />
+    <ProjectReference Include="..\Domain\WarehouseManagement.Modules.Inventory.Domain.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>
