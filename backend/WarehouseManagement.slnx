@@ -14,4 +14,7 @@
   <Folder Name="/src/Shared/Kernel/">
     <Project Path="src/Shared/Kernel/WarehouseManagement.Shared.Kernel.csproj" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/WarehouseManagement.Modules.Inventory.Domain.Tests/WarehouseManagement.Modules.Inventory.Domain.Tests.csproj" />
+  </Folder>
 </Solution>
