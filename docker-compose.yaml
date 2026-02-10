@@ -10,6 +10,7 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    mem_limit: 512m
 
   pgadmin:
     image: dpage/pgadmin4
@@ -21,6 +22,7 @@ services:
       - "8080:80"
     depends_on:
       - db
+    mem_limit: 384m
 
 volumes:
   postgres_data:
