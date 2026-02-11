@@ -26,4 +26,4 @@ public class ProductsController : ControllerBase
     }
 }
 
-public record CreateProductRequest(string Name, string BaseUnit, Guid categoryId, int TrackingStrategy)
+public record CreateProductRequest(string Name, string BaseUnit, Guid CategoryId, int TrackingStrategy);
