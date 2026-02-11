@@ -25,11 +25,9 @@ namespace WarehouseManagement.Modules.Inventory.Infrastructure.Migrations
 
             modelBuilder.Entity("WarehouseManagement.Modules.Inventory.Domain.Product", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<string>("BaseUnit")
                         .IsRequired()
@@ -72,11 +70,9 @@ namespace WarehouseManagement.Modules.Inventory.Infrastructure.Migrations
 
             modelBuilder.Entity("WarehouseManagement.Modules.Inventory.Domain.ProductVariant", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedAtUtc")
                         .HasColumnType("timestamp with time zone");
@@ -95,8 +91,8 @@ namespace WarehouseManagement.Modules.Inventory.Infrastructure.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("character varying(200)");
 
-                    b.Property<int?>("ProductId")
-                        .HasColumnType("integer");
+                    b.Property<Guid?>("ProductId")
+                        .HasColumnType("uuid");
 
                     b.Property<decimal>("PurchasePrice")
                         .HasPrecision(18, 2)

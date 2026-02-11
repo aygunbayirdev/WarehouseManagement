@@ -2,7 +2,7 @@ namespace WarehouseManagement.Shared.Kernel;
 
 public abstract class BaseEntity : IAuditable, ISoftDeletable
 {
-    public int Id { get; protected set; }
+    public Guid Id { get; protected set; } = Guid.NewGuid();
 
     public DateTime CreatedAtUtc { get; private set; } = DateTime.UtcNow;
     public DateTime? UpdatedAtUtc { get; private set; }
