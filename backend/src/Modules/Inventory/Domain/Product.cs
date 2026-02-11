@@ -7,7 +7,7 @@ public class Product : BaseEntity
     public string Name { get; private set; }
     public string? Description { get; private set; }
     public string? BrandName { get; private set; }
-    public int CategoryId { get; private set; }
+    public Guid CategoryId { get; private set; }
     public string BaseUnit { get; private set; } = "Adet";
     public TrackingStrategy TrackingStrategy { get; private set; }
 
@@ -20,7 +20,7 @@ public class Product : BaseEntity
         Name = null!;
     }
 
-    public Product(string name, string? brandName, int categoryId, TrackingStrategy trackingStrategy)
+    public Product(string name, string? brandName, Guid categoryId, TrackingStrategy trackingStrategy)
     {
         Name = name;
         BrandName = brandName;

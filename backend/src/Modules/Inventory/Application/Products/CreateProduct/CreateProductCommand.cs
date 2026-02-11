@@ -5,5 +5,5 @@ namespace WarehouseManagement.Modules.Inventory.Application.Products.CreateProdu
 public record CreateProductCommand(
     string Name,
     string BaseUnit,
-    int CategoryId,
+    Guid CategoryId,
     int TrackingStrategy) : IRequest<Guid>;

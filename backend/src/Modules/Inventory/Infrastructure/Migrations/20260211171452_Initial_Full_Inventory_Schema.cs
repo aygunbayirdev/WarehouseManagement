@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace WarehouseManagement.Modules.Inventory.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial_Inventory_Tables_Guid : Migration
+    public partial class Initial_Full_Inventory_Schema : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -23,7 +23,7 @@ namespace WarehouseManagement.Modules.Inventory.Infrastructure.Migrations
                     Name = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
                     Description = table.Column<string>(type: "text", nullable: true),
                     BrandName = table.Column<string>(type: "text", nullable: true),
-                    CategoryId = table.Column<int>(type: "integer", nullable: false),
+                    CategoryId = table.Column<Guid>(type: "uuid", nullable: false),
                     BaseUnit = table.Column<string>(type: "character varying(10)", maxLength: 10, nullable: false),
                     TrackingStrategy = table.Column<int>(type: "integer", nullable: false),
                     CreatedAtUtc = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),

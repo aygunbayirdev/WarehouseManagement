@@ -12,8 +12,8 @@ using WarehouseManagement.Modules.Inventory.Infrastructure.Database;
 namespace WarehouseManagement.Modules.Inventory.Infrastructure.Migrations
 {
     [DbContext(typeof(InventoryDbContext))]
-    [Migration("20260211161053_Initial_Inventory_Tables_Guid")]
-    partial class Initial_Inventory_Tables_Guid
+    [Migration("20260211171452_Initial_Full_Inventory_Schema")]
+    partial class Initial_Full_Inventory_Schema
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,8 +40,8 @@ namespace WarehouseManagement.Modules.Inventory.Infrastructure.Migrations
                     b.Property<string>("BrandName")
                         .HasColumnType("text");
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("CategoryId")
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedAtUtc")
                         .HasColumnType("timestamp with time zone");

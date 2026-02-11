@@ -37,8 +37,8 @@ namespace WarehouseManagement.Modules.Inventory.Infrastructure.Migrations
                     b.Property<string>("BrandName")
                         .HasColumnType("text");
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("CategoryId")
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedAtUtc")
                         .HasColumnType("timestamp with time zone");
