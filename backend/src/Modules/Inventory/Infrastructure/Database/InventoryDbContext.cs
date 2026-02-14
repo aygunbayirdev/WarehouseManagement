@@ -12,6 +12,9 @@ public class InventoryDbContext : DbContext
     public DbSet<Product> Products { get; set; }
     public DbSet<ProductVariant> ProductVariants { get; set; }
     public DbSet<Category> Categories { get; set; }
+    public DbSet<Supplier> Suppliers { get; set; }
+    public DbSet<Receipt> Receipts { get; set; }
+    public DbSet<ReceiptLine> ReceiptLines { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
