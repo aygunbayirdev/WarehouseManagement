@@ -24,5 +24,7 @@ public class InventoryDbContext : DbContext
         modelBuilder.HasDefaultSchema("inventory");
 
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(InventoryDbContext).Assembly);
+
+        base.OnModelCreating(modelBuilder);
     }
 }

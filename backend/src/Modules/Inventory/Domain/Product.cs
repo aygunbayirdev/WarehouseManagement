@@ -22,6 +22,7 @@ public class Product : BaseEntity
 
     public Product(string name, string? brandName, Guid categoryId, TrackingStrategy trackingStrategy)
     {
+        Id = Guid.NewGuid();
         Name = name;
         BrandName = brandName;
         CategoryId = categoryId;

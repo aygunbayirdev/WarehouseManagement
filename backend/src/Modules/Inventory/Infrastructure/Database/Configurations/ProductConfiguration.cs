@@ -11,6 +11,9 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
         builder.ToTable("Products");
 
         builder.HasKey(x => x.Id);
+
+        builder.Property(x => x.Id)
+            .ValueGeneratedNever();
         
         builder.Property(x => x.Name).IsRequired().HasMaxLength(200);
         builder.Property(x => x.BaseUnit).IsRequired().HasMaxLength(10);

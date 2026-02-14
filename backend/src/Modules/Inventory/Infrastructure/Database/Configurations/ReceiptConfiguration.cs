@@ -12,6 +12,9 @@ public class ReceiptConfiguration : IEntityTypeConfiguration<Receipt>
 
         builder.HasKey(x => x.Id);
 
+        builder.Property(x => x.Id)
+            .ValueGeneratedNever();
+
         builder.Property(x => x.ReferenceNumber).HasMaxLength(50).IsRequired();
 
         // Enum'ı string olarak tut (Draft, Completed vs. diye yazar, okunması kolay olur)
@@ -19,10 +22,10 @@ public class ReceiptConfiguration : IEntityTypeConfiguration<Receipt>
             .HasConversion<string>()
             .HasMaxLength(20);
 
-        builder.HasMany<ReceiptLine>()
-            .WithOne()
+        builder.HasMany(r => r.Lines)
+            .WithOne() // Eğer ReceiptLine içinde "public Receipt Receipt" yoksa parantez içi boş kalır.
             .HasForeignKey(l => l.ReceiptId)
-            .OnDelete(DeleteBehavior.Cascade); // Fiş silinirse satırları da silinsin
+            .IsRequired();// Fiş silinirse satırları da silinsin
 
         builder.HasOne<Supplier>()
             .WithMany()

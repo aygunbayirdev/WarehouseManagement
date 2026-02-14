@@ -10,11 +10,18 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInventoryInfrastructure(this IServiceCollection services, string connectionString)
     {
-        services.AddDbContext<InventoryDbContext>(options => 
-            options.UseNpgsql(connectionString));
+        services.AddDbContext<InventoryDbContext>(options =>
+        {
+            options.UseNpgsql(connectionString);
+
+            options.EnableSensitiveDataLogging(); // Verileri (şifre hariç) logda gösterir
+            options.LogTo(Console.WriteLine, Microsoft.Extensions.Logging.LogLevel.Information); // SQL'i konsola basar
+        });
 
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<ICategoryRepository, CategoryRepository>();
+        services.AddScoped<ISupplierRepository, SupplierRepository>();
+        services.AddScoped<IReceiptRepository, ReceiptRepository>();
 
         return services;
     }

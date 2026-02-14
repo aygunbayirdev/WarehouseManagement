@@ -12,6 +12,9 @@ public class ReceiptLineConfiguration : IEntityTypeConfiguration<ReceiptLine>
 
         builder.HasKey(x => x.Id);
 
+        builder.Property(x => x.Id)
+            .ValueGeneratedNever();
+
         builder.Property(x => x.Quantity)
             .HasPrecision(18, 2)
             .IsRequired();

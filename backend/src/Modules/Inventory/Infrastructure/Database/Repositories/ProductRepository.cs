@@ -22,6 +22,7 @@ public class ProductRepository : IProductRepository
     public async Task AddAsync(Product product, CancellationToken cancellationToken = default)
     {
         await _context.Products.AddAsync(product, cancellationToken);
+        await _context.SaveChangesAsync(cancellationToken);
     }
 
     public void Update(Product product)
@@ -32,6 +33,11 @@ public class ProductRepository : IProductRepository
     public void Delete(Product product)
     {
         _context.Products.Remove(product);
+    }
+
+    public async Task<List<Product>> GetAllAsync(CancellationToken cancellationToken)
+    {
+        return await _context.Products.AsNoTracking().ToListAsync(cancellationToken);
     }
 
 }

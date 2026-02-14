@@ -13,9 +13,11 @@ public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand,
 
     public async Task<Guid> Handle(CreateProductCommand request, CancellationToken cancellationToken = default)
     {
+        Console.WriteLine($"[DEBUG] Handler Tetiklendi! Ürün: {request.Name}, KategoriId: {request.CategoryId}");
+        
         var product = new Product(
             request.Name,
-            request.BaseUnit,
+            null,
             request.CategoryId,
             (TrackingStrategy)request.TrackingStrategy);
 

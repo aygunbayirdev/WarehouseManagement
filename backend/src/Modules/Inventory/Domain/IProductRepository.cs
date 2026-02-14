@@ -6,4 +6,5 @@ public interface IProductRepository
     Task AddAsync(Product product, CancellationToken cancellationToken = default);
     void Update(Product product);
     void Delete(Product product);
+    Task<List<Product>> GetAllAsync(CancellationToken cancellationToken);
 }

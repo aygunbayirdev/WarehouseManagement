@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using WarehouseManagement.Modules.Inventory.Application.Products.CreateProduct;
+using WarehouseManagement.Modules.Inventory.Application.Products.GetProducts;
 
 namespace WarehouseManagement.WebApi.Controllers;
 
@@ -23,6 +24,13 @@ public class ProductsController : ControllerBase
         var productId = await _mediator.Send(command);
 
         return Ok(new { Id = productId });
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetAll()
+    {
+        var result = await _mediator.Send(new GetProductsQuery());
+        return Ok(result);
     }
 }
 
